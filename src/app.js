@@ -1,5 +1,13 @@
+// express
 const express = require('express')
 const app = express()
+
+//firebase
+const { initializeApp } = require('firebase/app')
+
+const firebaseConfig = require('../firebaseConfig.json')
+
+const firebaseApp = initializeApp(firebaseConfig)
 
 //routes
 const indexRoutes = require('./routes/index.routes')
@@ -11,4 +19,4 @@ app.use(express.urlencoded({ extended: false }))
 //routes
 app.use(indexRoutes)
 
-module.exports = app
+module.exports = { app, firebaseApp }
