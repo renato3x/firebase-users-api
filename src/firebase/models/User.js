@@ -1,5 +1,5 @@
 const { getFirestore, Timestamp } = require('firebase-admin/firestore')
-const { firebaseApp } = require('../../app')
+const firebaseApp = require('../firebaseApp')
 
 const usersCollection = getFirestore(firebaseApp).collection('users')
 
