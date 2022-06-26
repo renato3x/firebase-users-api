@@ -15,4 +15,20 @@ module.exports = class User {
 
     return user
   }
+
+  static async getAll() {
+    const users = (await usersCollection.get())
+
+    return users.docs.map(this.render)
+  }
+
+  static render(doc) {
+    const fieldsProto = doc._fieldsProto
+
+    return Object.keys(fieldsProto).reduce((object, key) => {
+      object[key] = fieldsProto[key].stringValue
+
+      return object
+    }, {  })
+  }
 }

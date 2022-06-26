@@ -1,6 +1,12 @@
 const UsersService = require('../services/UsersService')
 
 module.exports = class UsersController {
+  static async index(request, response) {
+    const users = await UsersService.getAll()
+
+    return response.status(200).json(users)
+  }
+
   static async create(request, response) {
     const {
       firstName,
