@@ -8,4 +8,8 @@ module.exports = class UsersService {
   static async getAll() {
     return await User.getAll()
   }
+
+  static async findById(id) {
+    return await User.findById(id)
+  }
 }

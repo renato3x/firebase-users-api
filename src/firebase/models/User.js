@@ -31,4 +31,10 @@ module.exports = class User {
       return object
     }, {  })
   }
+
+  static async findById(id) {
+    const user = await usersCollection.where('uid', '==', id).get()
+
+    return user.docs.map(this.render)[0]
+  }
 }
