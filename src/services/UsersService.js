@@ -1,9 +1,7 @@
 const User = require('../firebase/models/User')
 
 module.exports = class UsersService {
-  async save(user) {
-    const newUser = new User(...user)
-
-    return await newUser.save()
+  static async save(user) {
+    return await User.insert(user)
   }
 }
