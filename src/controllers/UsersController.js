@@ -28,8 +28,6 @@ module.exports = class UsersController {
       username
     } = request.body
 
-    console.log(request.file)
-
     try {
       const newUser = await UsersService.save({ firstName, lastName, email, username })
 
